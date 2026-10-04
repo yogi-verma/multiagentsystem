@@ -13,6 +13,6 @@ class TokenService:
             "exp": expires_at,
         }
         return jwt.encode(payload, settings.auth_secret_key, algorithm=settings.auth_algorithm)
-    
+
     def decode_access_token(self, token: str) -> Dict[str, Any]:
         return jwt.decode(token, settings.auth_secret_key, algorithms=[settings.auth_algorithm])
